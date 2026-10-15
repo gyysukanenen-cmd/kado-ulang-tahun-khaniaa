@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Khania!</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #ff75a0, #b47aff, #66d9ff);
+  background-size: 300% 300%;
+  animation: gradient 8s ease infinite;
+  overflow-x: hidden;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  padding: 30px 18px;
+  max-width: 520px;
+  margin: auto;
+}
+
+.card {
+  margin-top: 35px;
+  padding: 28px 20px;
+  background: rgba(255,255,255,0.22);
+  border: 2px solid rgba(255,255,255,0.55);
+  border-radius: 28px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+  backdrop-filter: blur(8px);
+  animation: muncul 1s ease;
+}
+
+@keyframes muncul {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.kue {
+  font-size: 85px;
+  animation: goyang 1.5s infinite;
+}
+
+@keyframes goyang {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+p {
+  line-height: 1.7;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 14px 22px;
+  margin: 8px;
+  background: #fff;
+  color: #e94e93;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#pesan {
+  display: none;
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 18px;
+  margin-top: 20px;
+  animation: muncul 0.7s ease;
+}
+
+#kejutan {
+  display: none;
+  font-size: 23px;
+  margin-top: 18px;
+  animation: muncul 0.7s ease;
+}
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  animation: jatuh linear forwards;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes jatuh {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+footer {
+  margin: 25px 0;
+  font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="card">
+    <div class="kue">🎂</div>
+
+    <h1>HAPPY BIRTHDAY!</h1>
+    <h2>🥳 KHANIA 🥳</h2>
+
+    <p>
+      Selamat ulang tahun manusia pendek! 🤣🎉
+    </p>
+
+    <p>
+      Hari ini umurnya bertambah,
+      tapi tingginya masih sama! 😭
+    </p>
+
+    <button onclick="bukaPesan()">💌 Buka Ucapan</button>
+    <button onclick="bukaKejutan()">🎁 Buka Kejutan</button>
+
+    <div id="pesan">
+      <h3>🎉 BUAT KHANIA 🎉</h3>
+      <p>
+        Selamat ulang tahun, Khania! 🥳
+        Semoga panjang umur, sehat selalu, makin bahagia,
+        makin sukses, dan semua keinginan kamu bisa tercapai.
+      </p>
+      <p>
+        Semoga hari-hari kamu dipenuhi hal baik,
+        rezeki lancar, masalah berkurang,
+        dan tambah tinggi pastinya! 🤣🍰
+      </p>
+      <h3>HAPPY BIRTHDAY, KHANIA! </h3>
+    </div>
+
+    <div id="kejutan">
+      🎊 SURPRISE! 🎊
+      <p>
+        Hadiah mahalnya menyusul ya...
+        untuk sekarang terima dulu doa tulus
+        dan website modal niat ini! WKWKWK 🤣
+      </p>
+      <div style="font-size:55px">🎁🎈💝</div>
+    </div>
+  </div>
+
+  <footer>
+    Dibuat khusus buat Khania <br>
+    Peringatan: hari ini wajib bahagia! 😎
+  </footer>
+</div>
+
+<script>
+function bukaPesan() {
+  const pesan = document.getElementById("pesan");
+  pesan.style.display = pesan.style.display === "block"
+    ? "none" : "block";
+  pesta();
+}
+
+function bukaKejutan() {
+  const kejutan = document.getElementById("kejutan");
+  kejutan.style.display = kejutan.style.display === "block"
+    ? "none" : "block";
+  pesta();
+}
+
+function pesta() {
+  const emoji = ["🎉", "💖", "🎊", "✨", "🎈", "🌸"];
+
+  for (let i = 0; i < 35; i++) {
+    const item = document.createElement("div");
+    item.className = "confetti";
+    item.textContent = emoji[Math.floor(Math.random() * emoji.length)];
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.animationDuration = (2 + Math.random() * 3) + "s";
+    item.style.fontSize = (16 + Math.random() * 18) + "px";
+
+    document.body.appendChild(item);
+
+    setTimeout(() => item.remove(), 5000);
+  }
+}
+</script>
+</body>
+  </html>
